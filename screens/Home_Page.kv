@@ -1,0 +1,58 @@
+#131425
+#.161, .43, .43, .1    
+<Home_Page>:
+    video: xvideo
+    filechooser: xfilechooser
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#101229"
+
+        MDBoxLayout:
+            size_hint: (1, .10)
+            md_bg_color: .7, .7, .7, 1
+
+            MDFloatLayout:
+
+                MDTextField:
+                    id: url_text
+                    hint_text: "YouTube Url"
+                    multiline: False
+                    size_hint_x: (.500)
+                    pos_hint: {"x": .25, "center_y": .50}
+                    line_color_normal: "#101229"
+
+                MDIconButton:
+                    id: download
+                    icon: "download"
+                    icon_size: "20sp"
+                    pos_hint: {"x": .72, "center_y": .50}
+                    on_press: root.xDownload.test(app)         
+
+                MDIconButton:
+                    id: button
+                    icon: "cog-box"
+                    icon_size: "40sp"
+                    pos_hint: {"right": 1, "center_y": .50}
+                    on_press: root.xMenu.popup(app)
+
+        MDBoxLayout:
+            MDBoxLayout:
+                VideoPlayer:
+                    id: xvideo
+                    
+            MDBoxLayout:
+                FileChooserListView:
+                    id: xfilechooser
+                    path: "/home/bandolero"
+                    on_selection: root.selected(xfilechooser.selection)
+
+        MDBoxLayout:
+            size_hint: (1, .10)
+            md_bg_color: .7, .7, .7, 1
+
+            MDFloatLayout:
+                MDIconButton:
+                    icon: "list-box"
+                    icon_size: "50sp"
+                    pos_hint: {"right": 1, "center_y": .50}
